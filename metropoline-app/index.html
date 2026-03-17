@@ -729,11 +729,10 @@ const EMPLOYEES=['כרמית רוטשילד','אבי בלאי','נתן אייל�
 const DB='https://sheetdb.io/api/v1/o1at4t1qn4icj';
 const DSHEET=encodeURIComponent('דוחות יומיים');
 const TSHEET=encodeURIComponent('הקצאת משימות');
-const p=url=>url;
 const today=new Date();
 
 // Set dates
-document.getElementById('sidebarDate').textContent=today.toLocaleDateString('he-IL',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+const p='https://script.google.com/macros/s/AKfycbyv-eeYi70xF-I9N2TR07COLh2p4iujK2pbvaE1AhJ0/exec';
 document.getElementById('dashDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long'});
 document.getElementById('reportDateBadge').textContent=today.toLocaleDateString('he-IL',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 document.getElementById('taskDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'});
