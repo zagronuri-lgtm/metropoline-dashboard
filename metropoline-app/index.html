@@ -732,7 +732,7 @@ const TSHEET=encodeURIComponent('הקצאת משימות');
 const today=new Date();
 
 // Set dates
-    const p='https://script.google.com/macros/s/AKfycbyv-eeYi70xF-I9N2TR07COLh2p4iujK2pbvaE1AhJ0/exec';
+    const p=url=>url;
 document.getElementById('dashDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long'});
 document.getElementById('reportDateBadge').textContent=today.toLocaleDateString('he-IL',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 document.getElementById('taskDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'});
