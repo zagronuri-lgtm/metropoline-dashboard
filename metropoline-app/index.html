@@ -732,11 +732,12 @@ const TSHEET=encodeURIComponent('הקצאת משימות');
 const today=new Date();
 
 // Set dates
-    const p='https://script.google.com/macros/s/AKfycbw8PCrMmu0dTDOLc0Cx0RMnVX8SXoN5S9wG3CuUuJtkfJa1qf-wlcmoz8qxO64fr7798A/exec';
+    const p='https://script.google.com/macros/s/AKfycbyv-eeYi70xF-I9N2TR07COLh2p4iujK2pbvaE1AhJ0/exec';
 document.getElementById('dashDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long'});
 document.getElementById('reportDateBadge').textContent=today.toLocaleDateString('he-IL',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 document.getElementById('taskDateBadge').textContent=today.toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'});
 document.getElementById('myDateBadge').textContent=today.toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long'});
+      const pEmail='https://script.google.com/macros/s/AKfycbxJ7L63gMT0_LfGVTMpcHAdJwsS6d5iefDeQ9pywkiorWMdwbvmDcUf4oSdDWkPoAmzig/exec';
 
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2800);}
 
