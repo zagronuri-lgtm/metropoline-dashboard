@@ -1532,7 +1532,7 @@ fetchAll();
 function loadArchive(){
   const wrap=document.getElementById('archiveWrap');
   wrap.innerHTML='<div class="loading">טוען ארכיון...</div>';
-  const url=p+'?action=getArchive';
+  const url=pEmail+'?action=getArchive';
   fetch(url).then(r=>r.json()).then(d=>{
     if(!d.rows||d.rows.length===0){wrap.innerHTML='<p style="color:#aaa">אין משימות בארכיון</p>';return;}
     let html='<table style="width:100%;border-collapse:collapse;color:#fff">';
@@ -1551,7 +1551,7 @@ function loadArchive(){
 
 function archiveAllCompleted(){
   if(!confirm('האם להעביר את כל המשימות שבוצעו לארכיון?'))return;
-  const url=p+'?action=archiveCompleted';
+  const url=pEmail+'?action=archiveCompleted';
   fetch(url).then(r=>r.json()).then(d=>{
     showToast(d.message||'הועבר לארכיון');
     loadArchive();
