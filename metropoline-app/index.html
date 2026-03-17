@@ -1562,6 +1562,7 @@ function archiveAllCompleted(){
     loadArchive();
   }).catch(e=>showToast('שגיאה: '+e.message));
 }
-  </script>
+  document.getElementById('roleScreen').addEventListener('click',function(e){const card=e.target.closest('.role-card');if(card){const role=card.getAttribute('data-role')||card.onclick&&card.onclick.toString().match(/selectRole.'(\w+)'/)?.[1];if(role)selectRole(role);}});
+</script>
 </body>
 </html>
