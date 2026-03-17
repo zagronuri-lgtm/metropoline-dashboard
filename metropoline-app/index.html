@@ -812,11 +812,17 @@ function enterAs(role){
 
 function showEmpPicker(){
   const cards=document.querySelector('.role-cards');
-  cards.innerHTML='<div style="width:100%;text-align:center"><div style="color:#fff;font-size:16px;font-weight:800;margin-bottom:16px">בחר את שמך:</div><div style="display:flex;flex-direction:column;gap:8px;max-width:280px;margin:0 auto">'+
-    EMPLOYEES.map(e=>'<button onclick="pickEmployee(\''+e+'\')" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 18px;color:#fff;font-family:Heebo,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;backdrop-filter:blur(10px)" onmouseover="this.style.background=\'rgba(255,255,255,.3)\';this.style.borderColor=\'#FFD166\'" onmouseout="this.style.background=\'rgba(255,255,255,.15)\';this.style.borderColor=\'rgba(255,255,255,.25)\'">'+e+'</button>').join('')+
-    '<button onclick="backToRoles()" style="background:transparent;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;padding:10px;color:rgba(255,255,255,.5);font-family:Heebo,sans-serif;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px">← חזור</button></div></div>';
+  let html='<div style="width:100%;text-align:center"><div style="color:#fff;font-size:16px;font-weight:800;margin-bottom:16px">בחר את שמך:</div><div style="display:flex;flex-direction:column;gap:8px;max-width:280px;margin:0 auto" id="empPickerList">';
+  EMPLOYEES.forEach(e=>{
+    html+='<button data-name="'+e+'" class="emp-pick-btn" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 18px;color:#fff;font-family:Heebo,sans-serif;font-size:15px;font-weight:700;cursor:pointer">'+e+'</button>';
+  });
+  html+='<button id="backToRolesBtn" style="background:transparent;border:1.5px solid rgba(255,255,255,.3);border-radius:12px;padding:10px;color:rgba(255,255,255,.5);font-family:Heebo,sans-serif;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px">← חזור</button></div></div>';
+  cards.innerHTML=html;
+  document.querySelectorAll('.emp-pick-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){pickEmployee(this.dataset.name);});
+  });
+  document.getElementById('backToRolesBtn').addEventListener('click',backToRoles);
 }
-
 function pickEmployee(name){
   loggedInEmployee=name;
   enterAs('employee');
