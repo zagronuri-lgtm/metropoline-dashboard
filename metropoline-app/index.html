@@ -325,12 +325,12 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="role-title">ברוך הבא!</div>
   <div class="role-sub">בחר את התפקיד שלך כדי להמשיך</div>
   <div class="role-cards">
-    <div class="role-card" onclick="selectRole('manager')">
+    <div class="role-card" data-role="manager">
       <div class="role-icon">👔</div>
       <div class="role-name">מנהל</div>
       <div class="role-desc">דשבורד מנהל<br>הקצאת משימות<br>צפייה בדוחות</div>
     </div>
-    <div class="role-card" onclick="selectRole('employee')">
+    <div class="role-card" data-role="employee">
       <div class="role-icon">💻</div>
       <div class="role-name">עובד</div>
       <div class="role-desc">דוח יומי<br>משימות שהוקצו לי<br>סימון ביצוע</div>
@@ -830,7 +830,7 @@ function pickEmployee(name){
 
 function backToRoles(){
   const cards=document.querySelector('.role-cards');
-  cards.innerHTML='<div class="role-card" onclick="selectRole(\'manager\')"><div class="role-icon">👔</div><div class="role-name">מנהל</div><div class="role-desc">דשבורד מנהל<br>הקצאת משימות<br>צפייה בדוחות</div></div><div class="role-card" onclick="selectRole(\'employee\')"><div class="role-icon">💻</div><div class="role-name">עובד</div><div class="role-desc">דוח יומי<br>משימות שהוקצו לי<br>סימון ביצוע</div></div>';
+    cards.innerHTML='<div class="role-card" data-role="manager"><div class="role-icon">👔</div><div class="role-name">מנהל</div><div class="role-desc">דשבורד מנהל<br>הקצאת משימות<br>צפייה בדוחות</div></div><div class="role-card" data-role="employee"><div class="role-icon">💻</div><div class="role-name">עובד</div><div class="role-desc">דוח יומי<br>משימות שהוקצו לי<br>סימון ביצוע</div></div>';
 }
 
 function switchRole(){
@@ -1562,7 +1562,7 @@ function archiveAllCompleted(){
     loadArchive();
   }).catch(e=>showToast('שגיאה: '+e.message));
 }
-  document.getElementById('roleScreen').addEventListener('click',function(e){const card=e.target.closest('.role-card');if(card){const role=card.getAttribute('data-role')||card.onclick&&card.onclick.toString().match(/selectRole.'(\w+)'/)?.[1];if(role)selectRole(role);}});
+  document.getElementById('roleScreen').addEventListener('click',function(e){const card=e.target.closest('.role-card');if(card){const role=card.getAttribute('data-role');if(role)selectRole(role);}});
 </script>
 </body>
 </html>
