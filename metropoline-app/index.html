@@ -1562,7 +1562,7 @@ function archiveAllCompleted(){
     loadArchive();
   }).catch(e=>showToast('שגיאה: '+e.message));
 }
-  document.getElementById('roleScreen').addEventListener('click',function(e){const card=e.target.closest('.role-card');if(card){var rn=card.querySelector('.role-name');var role=card.getAttribute('data-role')||(rn&&rn.textContent.trim()==='מנהל'?'manager':rn&&rn.textContent.trim()==='עובד'?'employee':null);if(role)selectRole(role);}});
+  document.getElementById('roleScreen').addEventListener('click',function(e){const card=e.target.closest('.role-card');if(card){var rn=card.querySelector('.role-name');var role=card.getAttribute('data-role')||(rn?(rn.textContent.trim()==='מנהל'?'manager':(rn.textContent.trim()==='עובד'?'employee':null)):null);if(role)selectRole(role);}});
 </script>
 </body>
 </html>
